@@ -46,7 +46,7 @@ void RunModel() {
   // 3. Prepare input data
   //input 0
   std::unique_ptr<Tensor> input_tensor(std::move(predictor->GetInput(1)));
-  input_tensor->Resize(shape_t({1,3,380,100}));
+  input_tensor->Resize(shape_t({1,3,100,380}));
   auto* data = input_tensor->mutable_data<float>();
   for(int i = 0; i < ShapeProduction(input_tensor->shape()); ++i){
       data[i] = 1;
